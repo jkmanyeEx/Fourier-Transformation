@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from numpy import *
 import socket
 
-data = []
+data = [[[1.0, 0.04708333333333319], [4.0, 0.45583333333333326], [8.0, 0.22875000000000045], [10.0, 0.2741666666666667]], 1.9816513761467889, 4.4]
 
 def decode(encoded, x):
   result = 0
@@ -12,7 +12,7 @@ def decode(encoded, x):
   return result * encoded[1] * encoded[2] / 2
 
 X = [x for x in linspace(-3, 3, 1200)]
-Y = [decode(eval(data), x) for x in linspace(-3, 3, 1200)]
+Y = [decode(data, x) for x in linspace(-3, 3, 1200)]
 
 plt.title("Decoded Result from Receiver")
 plt.plot(X, Y)

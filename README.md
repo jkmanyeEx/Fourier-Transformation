@@ -38,6 +38,8 @@ def original(x):
 X = [x for x in linspace(-3, 3, 1200)]
 Y = [original(x) for x in linspace(-3, 3, 1200)]
 ```
+![img](./Transformation/Image/Original%20Graph.png)
+
 그리고, 이 함수의 진폭을 일정하게 조정하여 변환하기 쉽도록 한다.
 ```python
 def maxval():
@@ -52,6 +54,8 @@ maxValue = maxval()
 def wave(x):
   return original(x) / maxValue * 2
 ```
+![img](./Transformation/Image/CB%20Graph.png)
+
 이제, 복소평면 상에서 함수의 그래프를 '감는다'는 것을 표현한다.
 ```python
 fWind = int(input("Type in the Winding Frequency You Want: "))
@@ -62,6 +66,9 @@ def wind(x, f):
 Z = [wind(x, fWind) for x in linspace(0, 6, 1200)]
 # Z는 주파수 성분 fWind에 대한 감긴 복소수 함숫값
 ```
+![img](./Transformation/Image/Wind%203.png)
+![img](./Transformation/Image/Wind%204.png)
+
 이를 주파수 1189개에 대하여 반복하고, 특정 세기 이상의 주파수들만 저장한다.
 ```python
 def gravityCenter(f):
@@ -86,6 +93,8 @@ for f in linspace(1, 100, 1189):
 
 resultArray.pop(0)
 ```
+![img](./Transformation/Image/Filtered.png)
+
 마지막으로, 결과 리스트를 이용해 파동을 그리고, 이 파동을 원래 함수의 진폭에 맞게 고쳐 내보낸다.
 ```python
 def inverse(x):
@@ -120,6 +129,8 @@ def result():
   return [resultArray, multiplier(), maxValue]
 
 print("Final Exported Result: " + str(result()))
+
+# Result: Final Exported Result: [[[1.0, 0.04708333333333319], [4.0, 0.45583333333333326], [8.0, 0.22875000000000045], [10.0, 0.2741666666666667]], 1.9816513761467889, 4.4]
 ```
 이제, 원래의 파동을 모르는 상태에서 위의 출력값만을 가지고 원래 파동을 나타낼 수 있다.
 ```python
@@ -130,6 +141,7 @@ def decode(encoded, x):
 
   return result * encoded[1] * encoded[2] / 2
 ```
+![img](./Transformation/Image/Decode.png)
 
 ## 해석 & 결론
 
